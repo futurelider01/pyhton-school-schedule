@@ -1,7 +1,10 @@
 import pandas as pd
 from datetime import datetime
+import os
 
-jadval = pd.read_excel('D:\Shohiddin\Shohiddin python\Botlar\Dars jadvallari\core\source\\all_jadval.xlsx',header=[0,1,2])
+PARENT = os.getcwd()
+
+jadval = pd.read_excel(f'{PARENT}\core\source\\all_jadval.xlsx',header=[0,1,2])
 WEEK=('Dushanba', 'Seshanba','Chorshanba', 'Payshanba', 'Juma', 'Shanba','Hammasi')
 SINFLAR = ['10C', '9A',  '5B', '11B', '9C','9O', '5A', '7A', '6A', '8C', '6B', '7C', '10A', '10O','11A', '8A','10B']
 
@@ -14,16 +17,16 @@ def today_():
     return d[today]
 
 def get_grade(chat_id):
-    log = pd.read_csv('D:\Shohiddin\Shohiddin python\Botlar\Dars jadvallari\core\logging.csv')
+    log = pd.read_csv(f'{PARENT}\core\logging.csv')
     sinf = log[log['chat_id']==int(chat_id)]['sinf']
     return sinf.values[0]
 
 def get_role(chat_id):
-    log = pd.read_csv('D:\Shohiddin\Shohiddin python\Botlar\Dars jadvallari\core\logging.csv')
+    log = pd.read_csv(f'{PARENT}\core\logging.csv')
     sinf = log[log['chat_id']==int(chat_id)]['role']
     return sinf.values[0]
 def get_name(chat_id):
-    log = pd.read_csv('D:\Shohiddin\Shohiddin python\Botlar\Dars jadvallari\core\logging.csv')
+    log = pd.read_csv(f'{PARENT}\core\logging.csv')
     sinf = log[log['chat_id']==int(chat_id)]['name']
     return sinf.values[0]
 
@@ -126,7 +129,7 @@ def get_classes_for_pupil(sinf_param, day_of_week):
     return schedule
 
 def all_ids():
-    df = pd.read_csv('D:\Shohiddin\Shohiddin python\Botlar\Dars jadvallari\core\logging.csv')
+    df = pd.read_csv(f'{PARENT}\core\logging.csv')
     return df['chat_id'].to_list()
 
 

@@ -185,7 +185,7 @@ async def process_name(message: Message, state: FSMContext):
     await message.answer("Statusingiz qanday", reply_markup=role)
 
 def writer(data: dict):
-    with open('D:\Shohiddin\Shohiddin python\Botlar\Dars jadvallari\core\logging.csv','a') as f:
+    with open(f'{PARENT}\core\logging.csv','a') as f:
         text = f"{data.get('chat_id')},{data.get('name')},{data.get('role')},{data.get('sinf',None)},{data.get('phone')}\n"
         f.write(text)
 async def process_role4user(message: Message, state: FSMContext):
