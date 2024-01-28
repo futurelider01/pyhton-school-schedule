@@ -146,7 +146,7 @@ async def auto_respone(message: Message, state: FSMContext):
     try:
         sinf = get_grade(chat_id)
     except:
-        message.answer("/start ni bosing")
+        await message.answer("/start ni bosing")
         return
     role = get_role(chat_id)
     if role=="O'quvchi":    
@@ -159,7 +159,7 @@ async def auto_respone(message: Message, state: FSMContext):
         name = get_name(chat_id)
         res = get_classes_for_teacher(name,day,True)
         res = modify_data4teachers(res)
-        await message.answer(res)
+        await message.answer(res, reply_markup=week6)
 
 async def get_grade_from_inline(call: CallbackQuery, state: FSMContext):
     data = call.data
@@ -185,7 +185,7 @@ async def process_name(message: Message, state: FSMContext):
     await message.answer("Statusingiz qanday", reply_markup=role)
 
 def writer(data: dict):
-    with open(f'{PARENT}\core\logging.csv','a') as f:
+    with open(f'./core/logging.csv','a') as f:
         text = f"{data.get('chat_id')},{data.get('name')},{data.get('role')},{data.get('sinf',None)},{data.get('phone')}\n"
         f.write(text)
 async def process_role4user(message: Message, state: FSMContext):

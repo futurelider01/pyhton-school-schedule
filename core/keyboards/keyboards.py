@@ -23,13 +23,13 @@ markup4fixed=ReplyKeyboardMarkup(
         [KeyboardButton(text='Dushanba'), KeyboardButton(text='Seshanba'),KeyboardButton(text='Chorshanba')],
         [KeyboardButton(text='Payshanba'), KeyboardButton(text='Juma'), KeyboardButton(text='Shanba')],
     ],
-    resize_keyboard=True, input_field_placeholder="Hafta kuni")
+    resize_keyboard=True,one_time_keyboard=False, input_field_placeholder="Hafta kuni")
 
 
 role = ReplyKeyboardMarkup(
         keyboard=[
                 [KeyboardButton(text="O'qituvchi"),KeyboardButton(text="O'quvchi")]
-            ], resize_keyboard=True, one_time_keyboard=True, input_field_placeholder='Role'
+            ], resize_keyboard=True, one_time_keyboard=False, input_field_placeholder='Role'
         )
 
 week7 = ReplyKeyboardMarkup(
@@ -44,7 +44,7 @@ week6=ReplyKeyboardMarkup(
                 [KeyboardButton(text='Dushanba'), KeyboardButton(text='Seshanba'),KeyboardButton(text='Chorshanba')],
                 [KeyboardButton(text='Payshanba'), KeyboardButton(text='Juma'), KeyboardButton(text='Shanba')],
             ],
-            resize_keyboard=True,one_time_keyboard=True, input_field_placeholder="Hafta kuni")
+            resize_keyboard=True,one_time_keyboard=False, input_field_placeholder="Hafta kuni")
 contact = ReplyKeyboardMarkup(
             keyboard=[[KeyboardButton(text="Telefon raqamni jo'natish",request_contact=True)]],resize_keyboard=True)
 
